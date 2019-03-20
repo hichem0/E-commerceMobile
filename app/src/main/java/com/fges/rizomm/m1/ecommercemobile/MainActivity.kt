@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -18,10 +19,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+     /*  login.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-        }
+        }*/
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -60,24 +61,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
+            R.id.home -> {
 
             }
-            R.id.nav_gallery -> {
+            R.id.commande -> {
 
             }
-            R.id.nav_slideshow -> {
+            R.id.facebook -> {
 
             }
-            R.id.nav_manage -> {
+            R.id.apropos -> {
 
             }
-            R.id.nav_share -> {
+            R.id.contact -> {
 
             }
-            R.id.nav_send -> {
 
-            }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
