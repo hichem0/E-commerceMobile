@@ -3,13 +3,16 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ui.fragment.BlankFragment"
->
+             tools:context=".ui.fragment.BlankFragment2">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="627dp"
+            android:text="wff"/>
+    <Button
+            android:text="Button"
+            android:layout_width="match_parent"
+            android:layout_height="397dp" android:id="@+id/button2"/>
 
 </FrameLayout>
