@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.fges.rizomm.m1.ecommercemobile">
 
+<uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -16,6 +18,7 @@
         <activity
                 android:name=".Register"
                 >
+<<<<<<< HEAD
         </activity>
         <activity
                 android:name=".Login"
@@ -23,6 +26,15 @@
         </activity>
         <activity
                 android:name="com.fges.rizomm.m1.ecommercemobile.ui.activity.Main2Activity"
+=======
+        </activity>
+        <activity
+                android:name=".Login"
+        >
+        </activity>
+        <activity
+                android:name=".Main2Activity"
+>>>>>>> redhaBranch
                 android:label="@string/title_activity_main2">
                 <!--android:label="@string/app_name"-->
                 <!--android:theme="@style/AppTheme.NoActionBar">-->
