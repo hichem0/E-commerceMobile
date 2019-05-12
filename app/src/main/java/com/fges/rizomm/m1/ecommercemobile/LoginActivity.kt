@@ -30,7 +30,7 @@ public class LoginActivity : AppCompatActivity() {
         logincreatebtn.setOnClickListener {
             val intent= Intent(applicationContext,RegisterActivity::class.java)
             startActivity(intent)
-            finish()
+          //  finish()
         }
         btnconnecter!!.setOnClickListener { loginUser() }
     }
@@ -44,7 +44,7 @@ public class LoginActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // Sign in success, update UI with signed-in user's information
                         Log.d(TAG, "signInWithEmail:success")
-                        val intent = Intent(this,MainActivity::class.java)
+                        val intent = Intent(this,Main2Activity::class.java)
                         startActivity(intent)
                     } else {
                         // If sign in fails, display a message to the user.

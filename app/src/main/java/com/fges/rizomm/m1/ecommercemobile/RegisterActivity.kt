@@ -42,8 +42,9 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this,"Votre compte est bien crée !",Toast.LENGTH_LONG).show()
                     } else {
                         // If sign in fails, display a message to the user.
-                        Toast.makeText(this@RegisterActivity, "Inscription failed.",
+                        Toast.makeText(this@RegisterActivity, "Inscription failed." + task.exception!!.cause,
                             Toast.LENGTH_SHORT).show()
+
                     }
                 }
         } else {
@@ -72,5 +73,9 @@ class RegisterActivity : AppCompatActivity() {
         mDatabaseReference = mDatabase!!.reference!!.child("Users")
         mAuth = FirebaseAuth.getInstance()
         btninscription!!.setOnClickListener { createNewAccount() }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }
