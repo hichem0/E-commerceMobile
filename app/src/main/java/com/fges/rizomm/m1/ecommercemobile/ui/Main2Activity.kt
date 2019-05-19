@@ -10,21 +10,21 @@ import android.widget.FrameLayout
 import com.fges.rizomm.m1.ecommercemobile.R
 import com.fges.rizomm.m1.ecommercemobile.model.Product
 import com.fges.rizomm.m1.ecommercemobile.network.ProductService
+import com.fges.rizomm.m1.ecommercemobile.network.RetrofitFactory
 import com.fges.rizomm.m1.ecommercemobile.ui.Adapter.ProductsAdapter
 
 import kotlinx.android.synthetic.main.activity_main2.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.jetbrains.anko.toast
+import retrofit2.*
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class Main2Activity : AppCompatActivity() {
 
-    private val url = "https://techtools.herokuapp.com/produits/"
 
-
-    private var content: FrameLayout? = null
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
 
             item -> when (item.itemId) {
@@ -80,31 +80,28 @@ class Main2Activity : AppCompatActivity() {
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl(url)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
+        val service = RetrofitFactory.makeRetrofitService()
+        CoroutineScope(Dispatchers.IO).launch {
+            val request = service.listProduits()
+            withContext(Dispatchers.Main) {
+                try {
+                    val response = request.await()
+                    if (response.isNotEmpty()) {
 
-        val service = retrofit.create(ProductService::class.java)
-
-        val produitRequest = service.listProduits()
-
-        produitRequest.enqueue(object : Callback<List<Product>> {
-
-            override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
-
-                val allProduit = response.body()
-
-                recycler_view.apply {
-                    layoutManager = GridLayoutManager(this@Main2Activity, 2)
-                    adapter = allProduit?.let { ProductsAdapter(it) }
-               }
+                        recycler_view.apply {
+                            layoutManager = GridLayoutManager(this@Main2Activity, 2)
+                            adapter = ProductsAdapter(response.toList())
+                        }
+                    } else {
+                        toast("Error")
+                    }
+                } catch (e: HttpException) {
+                    toast("Exception ${e.message}")
+                } catch (e: Throwable) {
+                    toast("Ooops: Something else went wrong")
+                }
             }
-            override fun onFailure(call: Call<List<Product>>, t: Throwable) {
-                error("No products found.")
-            }
-        })
-
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
