@@ -1,4 +1,4 @@
-package com.fges.rizomm.m1.ecommercemobile.ui.activity
+package com.fges.rizomm.m1.ecommercemobile.ui
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView

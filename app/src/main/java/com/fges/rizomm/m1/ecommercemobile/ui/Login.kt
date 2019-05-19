@@ -1,14 +1,12 @@
-package com.fges.rizomm.m1.ecommercemobile
+package com.fges.rizomm.m1.ecommercemobile.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import org.jetbrains.annotations.Nullable
-import android.os.Handler;
-import android.os.PersistableBundle;
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.fges.rizomm.m1.ecommercemobile.R
 
 public class Login : AppCompatActivity() {
 
@@ -28,7 +26,7 @@ public class Login : AppCompatActivity() {
         mcreatelogin=findViewById(R.id.logincreatebtn)
 
         mcreatelogin.setOnClickListener {
-            val intent= Intent(applicationContext,Register::class.java)
+            val intent= Intent(applicationContext, Register::class.java)
             startActivity(intent)
             finish()
         }
