@@ -6,9 +6,10 @@
              tools:context=".ui.ContactFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
+    <Button
+            android:id="@+id/btnshowabout"
+             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Contact"/>
+            android:text="About"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -3,4 +3,5 @@
     <color name="colorPrimary">#5F0418</color>
     <color name="colorPrimaryDark">#570900</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="loginBtnBackground">#ff6969</color>
 </resources>

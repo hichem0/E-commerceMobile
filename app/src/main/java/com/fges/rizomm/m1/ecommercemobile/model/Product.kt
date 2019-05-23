@@ -1,7 +1,7 @@
 package com.fges.rizomm.m1.ecommercemobile.model
 
 
-class Product(val id: Int,val designation: String,val description: String,val photo: String) {
+class Product(val id: Int,val designation: String,val description: String,val photo: String,val prix: Float) {
 
 }
 

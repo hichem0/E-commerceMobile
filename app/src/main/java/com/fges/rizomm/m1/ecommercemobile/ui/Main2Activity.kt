@@ -8,25 +8,17 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
 import android.widget.FrameLayout
 import com.fges.rizomm.m1.ecommercemobile.R
-import com.fges.rizomm.m1.ecommercemobile.model.Product
-import com.fges.rizomm.m1.ecommercemobile.network.ProductService
-import com.fges.rizomm.m1.ecommercemobile.network.RetrofitFactory
-import com.fges.rizomm.m1.ecommercemobile.ui.Adapter.ProductsAdapter
-import com.fges.rizomm.m1.ecommercemobile.ui.List_Of_Product
 import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import org.jetbrains.anko.toast
 import android.support.v4.app.Fragment
-import kotlinx.android.synthetic.main.fragment_list__of__product.*
-import retrofit2.*
-import retrofit2.converter.moshi.MoshiConverterFactory
+import com.fges.rizomm.m1.ecommercemobile.Login
+import com.fges.rizomm.m1.ecommercemobile.Register
+import com.fges.rizomm.m1.ecommercemobile.ui.LoginFragment
+import kotlinx.android.synthetic.main.login.*
 
 class Main2Activity : AppCompatActivity() {
     private val list_of_product : Fragment = List_Of_Product()
     private val contactFragment : Fragment = ContactFragment()
+    private val loginFragment  :  Fragment = LoginFragment()
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -44,9 +36,16 @@ class Main2Activity : AppCompatActivity() {
 
 
             R.id.navigation_login -> {
-                val intent = Intent(this, Register::class.java)
-                this.startActivity(intent)
-            }
+//                val loginf = LoginFragment()
+//                replaceFragment(loginf)
+//                return@OnNavigationItemSelectedListener true
+
+
+                    val intent= Intent(applicationContext, Login::class.java)
+                    startActivity(intent)
+                    //  finish()
+                }
+
             R.id.navigation_order -> {
                 val mHomeFragmen = List_Of_Product()
                 replaceFragment(mHomeFragmen)
@@ -58,16 +57,16 @@ class Main2Activity : AppCompatActivity() {
 
             return@OnNavigationItemSelectedListener true
         }
-            R.id.action_settings -> {
-                // User chose the "Settings" item, show the app settings UI...
-                true
-            }
-
-            R.id.action_favorite -> {
-                // User chose the "Favorite" action, mark the current item
-                // as a favorite...
-                true
-            }
+//            R.id.action_settings -> {
+//                // User chose the "Settings" item, show the app settings UI...
+//                true
+//            }
+//
+//            R.id.action_favorite -> {
+//                // User chose the "Favorite" action, mark the current item
+//                // as a favorite...
+//                true
+//            }
 
             else -> {
                 // If we got here, the user's action was not recognized.
